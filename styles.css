@@ -36,9 +36,9 @@ a {
 }
 
 .page-shell {
-  max-width: 1240px;
+  max-width: 1152px;
   margin: 0 auto;
-  padding: 0 32px 56px;
+  padding: 0 24px 56px;
 }
 
 .site-header,
@@ -81,37 +81,34 @@ a {
 }
 
 h1,
-.hero-title,
 .note-title,
 h2 {
-  font-family: "Instrument Serif", serif;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   font-weight: 400;
-  letter-spacing: -0.022em;
-  line-height: 1.08;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
   margin: 0;
-  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(3rem, 6.4vw, 5.2rem);
-  max-width: 11.5ch;
+  font-size: clamp(3rem, 5.6vw, 4.55rem);
   margin-top: 20px;
 }
 
 h2 {
-  font-size: clamp(2.15rem, 3.8vw, 3.15rem);
-  max-width: 560px;
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  max-width: 24rem;
   margin-top: 16px;
 }
 
 h3 {
   margin: 0;
   font-size: 1.4rem;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .intro {
-  max-width: 760px;
+  max-width: 42rem;
   font-size: 1.18rem;
   line-height: 1.9;
   color: var(--muted);
@@ -120,20 +117,19 @@ h3 {
 
 .two-column {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.82fr);
-  gap: 64px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+  gap: 56px;
 }
 
 .hero {
-  min-height: 78vh;
+  min-height: 80vh;
   align-items: center;
-  padding: 72px 0 92px;
+  padding: 80px 0;
 }
 
 .summary-panel {
   border: 1px solid var(--line);
   background: var(--surface);
-  backdrop-filter: blur(8px);
   padding: 28px;
 }
 
@@ -215,7 +211,7 @@ h3 {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
+  gap: 32px;
 }
 
 .lens-card {
@@ -342,7 +338,7 @@ details[open] .plus {
 
 .note-title {
   font-size: clamp(2.8rem, 6vw, 4.6rem);
-  max-width: 12ch;
+  max-width: 13ch;
 }
 
 .note-dek {
@@ -373,18 +369,14 @@ details[open] .plus {
   margin: 0 0 18px;
 }
 
-@media (max-width: 1040px) {
+@media (min-width: 640px) {
+  .page-shell {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
   h1 {
-    max-width: 12.5ch;
-  }
-
-  h2 {
-    max-width: 520px;
-  }
-
-  .two-column {
-    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.9fr);
-    gap: 48px;
+    font-size: clamp(3.75rem, 6vw, 4.9rem);
   }
 }
 
@@ -402,7 +394,6 @@ details[open] .plus {
     grid-template-columns: 1fr;
   }
 
-  h1,
   h2,
   .note-title {
     max-width: none;
