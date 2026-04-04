@@ -3,39 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Why Structured Artifacts Still Matter in AI-Assisted Teams</title>
+    <title>Why Structured Artifacts Still Matter in AI-Assisted Teams — Aditya Singh</title>
+    <meta name="description" content="As AI speeds up drafting and synthesis, structure matters more, not less." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
   </head>
-  <body>
-    <article class="note-page">
-      <header class="note-header">
-        <a class="note-back" href="../index.html">← Back to home</a>
-        <p class="eyebrow">Notes · 02</p>
-        <h1 class="note-title">Why Structured Artifacts Still Matter in AI-Assisted Teams</h1>
-        <p class="note-dek">As AI speeds up drafting, analysis, and ideation, structure matters more, not less. Without it, teams move faster but understand less.</p>
+  <body class="min-h-screen bg-stone-50 text-stone-900 font-sans">
+    <div class="mx-auto max-w-6xl px-6 sm:px-10">
+      <header class="flex items-center justify-between border-b border-stone-200 py-6">
+        <a href="../index.html" class="text-base font-medium uppercase tracking-[0.14em] text-stone-700 transition hover:text-stone-950">Aditya Singh</a>
+        <nav class="hidden gap-8 text-sm text-stone-600 md:flex">
+          <a href="../index.html#work" class="transition hover:text-stone-900">Workstreams</a>
+          <a href="../notes.html" class="text-stone-950">Notes</a>
+          <a href="../background.html" class="transition hover:text-stone-900">Background</a>
+          <a href="#contact" class="transition hover:text-stone-900">Contact</a>
+        </nav>
       </header>
-      <div class="note-body">
-        <p>There is a common assumption that as AI tools become better at drafting and synthesis, the need for formal artifacts will decrease. In practice, the opposite is often true. When more content can be generated quickly, the value of structure rises because teams need a better way to distinguish between useful output, provisional thinking, and decisions that are ready to guide action.</p>
-        <p>Speed changes the bottleneck. The problem becomes less about generating text and more about shaping, validating, and preserving meaning. A document that captures assumptions, scope boundaries, definitions, dependencies, and open questions is no less valuable in an AI-assisted environment. It may be more valuable because it creates the frame within which AI output can be judged rather than merely accepted.</p>
-
-        <h2 style="max-width:none;">Artifacts are memory with shape</h2>
-        <p>Teams lose quality when important decisions remain trapped in chat threads, calls, or transient working sessions. Structured artifacts preserve not just outcomes, but the shape of the thinking that produced them. They help people understand what was decided, why it was decided, what remains uncertain, and how later work should interpret the original intent.</p>
-        <p>In environments where AI is used heavily, this becomes even more important because generated output can appear polished before it is grounded. A strong artifact gives the team something stable to return to.</p>
-
-        <h2 style="max-width:none;">AI benefits from clear constraints</h2>
-        <p>One practical reason structure still matters is that AI systems work better when the problem itself is well-shaped. Clear role definitions, explicit scope, known constraints, labeled assumptions, and disciplined templates produce better outcomes than vague prompts applied to loosely understood work. In that sense, structured artifacts are not just outputs. They are part of the input layer for higher-quality AI use.</p>
-        <p>A team that maintains disciplined artifacts can use AI more effectively because it already has cleaner context and stronger reference points.</p>
-
-        <h2 style="max-width:none;">Rigor is what makes speed useful</h2>
-        <p>Fast drafting is helpful. Faster summarization is helpful. Assisted ideation is helpful. None of these guarantee rigor. Rigor comes from checking definitions, tracing decisions, resolving contradictions, and making sure the output can survive handoff into execution. The artifact is where that rigor becomes visible.</p>
-        <p>Without structure, teams may gain throughput but lose alignment. That tradeoff is expensive in complex delivery environments.</p>
-
-        <h2 style="max-width:none;">What to preserve</h2>
-        <p>The goal is not to create more documents for their own sake. It is to preserve the artifacts that actually support execution: requirements that express behavior clearly, notes that capture key decisions, frameworks that reveal logic, and operating documents that help teams understand how work moves. AI can help create and refine these, but it should not replace the discipline of shaping them properly.</p>
-      </div>
-    </article>
+      <main>
+        <section class="py-20 md:py-24">
+          <a href="../notes.html" class="inline-flex items-center text-sm text-stone-600 transition hover:text-stone-950">← Back to Notes</a>
+          <p class="mt-10 text-sm uppercase tracking-[0.2em] text-stone-500">Notes · 02</p>
+          <h1 class="mt-4 max-w-4xl font-serif text-5xl leading-[1.02] tracking-tight text-stone-950 sm:text-6xl lg:text-7xl">Why Structured Artifacts Still Matter in AI-Assisted Teams</h1>
+          <p class="mt-8 max-w-3xl text-lg leading-8 text-stone-700 sm:text-xl">As AI speeds up drafting, analysis, and ideation, structure matters more, not less. Without it, teams move faster but understand less.</p>
+        </section>
+        <section class="border-t border-stone-200 py-16 md:py-20">
+          <div class="max-w-3xl">
+            <p class="text-base leading-8 text-stone-700">There is a common assumption that as AI tools become better at drafting and synthesis, the need for formal artifacts will decrease. In practice, the opposite is often true. When more content can be generated quickly, the value of structure rises because teams need a better way to distinguish between useful output, provisional thinking, and decisions that are ready to guide action.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">Speed changes the bottleneck. The problem becomes less about generating text and more about shaping, validating, and preserving meaning. A document that captures assumptions, scope boundaries, definitions, dependencies, and open questions is no less valuable in an AI-assisted environment. It may be more valuable because it creates the frame within which AI output can be judged rather than merely accepted.</p>
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">Artifacts are memory with shape</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">Teams lose quality when important decisions remain trapped in chat threads, calls, or transient working sessions. Structured artifacts preserve not just outcomes, but the shape of the thinking that produced them. They help people understand what was decided, why it was decided, what remains uncertain, and how later work should interpret the original intent.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">In environments where AI is used heavily, this becomes even more important because generated output can appear polished before it is grounded. A strong artifact gives the team something stable to return to.</p>
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">AI benefits from clear constraints</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">One practical reason structure still matters is that AI systems work better when the problem itself is well-shaped. Clear role definitions, explicit scope, known constraints, labeled assumptions, and disciplined templates produce better outcomes than vague prompts applied to loosely understood work. In that sense, structured artifacts are not just outputs. They are part of the input layer for higher-quality AI use.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">A team that maintains disciplined artifacts can use AI more effectively because it already has cleaner context and stronger reference points.</p>
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">Rigor is what makes speed useful</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">Fast drafting is helpful. Faster summarization is helpful. Assisted ideation is helpful. None of these guarantee rigor. Rigor comes from checking definitions, tracing decisions, resolving contradictions, and making sure the output can survive handoff into execution. The artifact is where that rigor becomes visible.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">Without structure, teams may gain throughput but lose alignment. That tradeoff is expensive in complex delivery environments.</p>
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">What to preserve</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">The goal is not to create more documents for their own sake. It is to preserve the artifacts that actually support execution: requirements that express behavior clearly, notes that capture key decisions, frameworks that reveal logic, and operating documents that help teams understand how work moves. AI can help create and refine these, but it should not replace the discipline of shaping them properly.</p>
+          </div>
+        </section>
+      </main>
+      <footer id="contact" class="border-t border-stone-200 py-16">
+        <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p class="text-sm uppercase tracking-[0.2em] text-stone-500">Contact</p>
+            <h2 class="mt-4 font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">Open to thoughtful conversations around product, systems, and complex workflows.</h2>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <button type="button" data-tally-open="J9DOY4" data-tally-layout="modal" data-tally-width="500" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700">Send a note</button>
+            <a href="https://linkedin.com/in/adityasingh95" target="_blank" rel="noreferrer" class="rounded-full border border-stone-300 px-6 py-3 text-sm font-medium text-stone-800 transition hover:border-stone-900 hover:text-stone-950">LinkedIn</a>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
