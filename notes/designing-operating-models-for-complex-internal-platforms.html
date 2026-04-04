@@ -3,39 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Designing Operating Models for Complex Internal Platforms</title>
+    <title>Designing Operating Models for Complex Internal Platforms — Aditya Singh</title>
+    <meta
+      name="description"
+      content="Internal platforms rarely succeed on software quality alone."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
   </head>
-  <body>
-    <article class="note-page">
-      <header class="note-header">
-        <a class="note-back" href="../index.html">← Back to home</a>
-        <p class="eyebrow">Notes · 03</p>
-        <h1 class="note-title">Designing Operating Models for Complex Internal Platforms</h1>
-        <p class="note-dek">Internal platforms rarely succeed on software quality alone. They succeed when the model around ownership, workflow, and decision-making is clear enough to support real use.</p>
+  <body class="min-h-screen bg-stone-50 text-stone-900 font-sans">
+    <div class="mx-auto max-w-6xl px-6 sm:px-10">
+      <header class="flex items-center justify-between border-b border-stone-200 py-6">
+        <a href="../index.html" class="text-base font-medium uppercase tracking-[0.14em] text-stone-700 transition hover:text-stone-950">Aditya Singh</a>
+        <nav class="hidden gap-8 text-sm text-stone-600 md:flex">
+          <a href="../index.html#work" class="transition hover:text-stone-900">Workstreams</a>
+          <a href="../notes.html" class="text-stone-950">Notes</a>
+          <a href="../background.html" class="transition hover:text-stone-900">Background</a>
+          <a href="#contact" class="transition hover:text-stone-900">Contact</a>
+        </nav>
       </header>
-      <div class="note-body">
-        <p>When internal platforms underperform, the first instinct is often to ask what is wrong with the system itself. Sometimes that is the right question. But in many cases the deeper issue is that the operating model around the platform is underdefined. Teams are unsure who owns what, how requests should flow, what gets prioritized, what can be configured locally, and what requires a coordinated change.</p>
-        <p>A platform can be technically capable and still feel ineffective if the way it is supposed to be used is vague. This is especially true in environments where multiple teams touch the same system for different reasons, or where business expectations evolve faster than the platform’s governance.</p>
 
-        <h2 style="max-width:none;">The platform is only part of the system</h2>
-        <p>An internal platform does not operate in isolation. It exists inside a wider network of roles, responsibilities, approvals, exceptions, support paths, and decision forums. If those surrounding elements are weak, people start creating parallel processes, local workarounds, and inconsistent interpretations. Over time, the official platform remains in place, but the real operating model shifts into undocumented behavior.</p>
-        <p>That is often when teams say a platform is hard to use, even though the underlying issue is really a mismatch between system design and operating reality.</p>
+      <main>
+        <section class="py-20 md:py-24">
+          <a href="../notes.html" class="inline-flex items-center text-sm text-stone-600 transition hover:text-stone-950">← Back to Notes</a>
+          <p class="mt-10 text-sm uppercase tracking-[0.2em] text-stone-500">Notes · 03</p>
+          <h1 class="mt-4 max-w-4xl font-serif text-5xl leading-[1.02] tracking-tight text-stone-950 sm:text-6xl lg:text-7xl">
+            Designing Operating Models for Complex Internal Platforms
+          </h1>
+          <p class="mt-8 max-w-3xl text-lg leading-8 text-stone-700 sm:text-xl">
+            Internal platforms rarely succeed on software quality alone. They succeed when the model around ownership, workflow, and decision-making is clear enough to support real use.
+          </p>
+        </section>
 
-        <h2 style="max-width:none;">Clarity reduces accidental complexity</h2>
-        <p>A good operating model makes it easier to answer simple but important questions. Who is allowed to request a change? What information is required before something can move forward? Which decisions are local and which are central? When does an issue become an enhancement? What level of documentation is expected before engineering work starts? These are not administrative details. They directly affect speed, quality, and trust.</p>
-        <p>When these boundaries are clear, teams spend less time negotiating the process itself and more time working within a system that is understandable.</p>
+        <section class="border-t border-stone-200 py-16 md:py-20">
+          <div class="max-w-3xl">
+            <p class="text-base leading-8 text-stone-700">When internal platforms underperform, the first instinct is often to ask what is wrong with the system itself. Sometimes that is the right question. But in many cases the deeper issue is that the operating model around the platform is underdefined. Teams are unsure who owns what, how requests should flow, what gets prioritized, what can be configured locally, and what requires a coordinated change.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">A platform can be technically capable and still feel ineffective if the way it is supposed to be used is vague. This is especially true in environments where multiple teams touch the same system for different reasons, or where business expectations evolve faster than the platform’s governance.</p>
 
-        <h2 style="max-width:none;">Workflow design is part of platform design</h2>
-        <p>Platforms are often described in terms of features, interfaces, and integrations. But their practical quality is also determined by how work flows through them. A strong operating model pays attention to the lifecycle of requests, the visibility of state, the ownership of exceptions, and the handoffs between different actors. In other words, workflow design is not an afterthought around the platform. It is part of the platform.</p>
-        <p>This matters even more in complex enterprise settings where different teams may see the same system through very different lenses.</p>
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">The platform is only part of the system</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">An internal platform does not operate in isolation. It exists inside a wider network of roles, responsibilities, approvals, exceptions, support paths, and decision forums. If those surrounding elements are weak, people start creating parallel processes, local workarounds, and inconsistent interpretations. Over time, the official platform remains in place, but the real operating model shifts into undocumented behavior.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">That is often when teams say a platform is hard to use, even though the underlying issue is really a mismatch between system design and operating reality.</p>
 
-        <h2 style="max-width:none;">What a usable model should do</h2>
-        <p>A usable operating model should make the platform feel legible. It should reveal where responsibility sits, what decisions are pending, how change moves, and what good usage looks like. It does not need to remove every friction point, but it should reduce avoidable ambiguity and make escalation paths explicit. When that happens, adoption feels less like enforcement and more like shared understanding.</p>
-      </div>
-    </article>
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">Clarity reduces accidental complexity</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">A good operating model makes it easier to answer simple but important questions. Who is allowed to request a change? What information is required before something can move forward? Which decisions are local and which are central? When does an issue become an enhancement? What level of documentation is expected before engineering work starts? These are not administrative details. They directly affect speed, quality, and trust.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">When these boundaries are clear, teams spend less time negotiating the process itself and more time working within a system that is understandable.</p>
+
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">Workflow design is part of platform design</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">Platforms are often described in terms of features, interfaces, and integrations. But their practical quality is also determined by how work flows through them. A strong operating model pays attention to the lifecycle of requests, the visibility of state, the ownership of exceptions, and the handoffs between different actors. In other words, workflow design is not an afterthought around the platform. It is part of the platform.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">This matters even more in complex enterprise settings where different teams may see the same system through very different lenses.</p>
+
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">What a usable model should do</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">A usable operating model should make the platform feel legible. It should reveal where responsibility sits, what decisions are pending, how change moves, and what good usage looks like. It does not need to remove every friction point, but it should reduce avoidable ambiguity and make escalation paths explicit. When that happens, adoption feels less like enforcement and more like shared understanding.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" class="border-t border-stone-200 py-16">
+        <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p class="text-sm uppercase tracking-[0.2em] text-stone-500">Contact</p>
+            <h2 class="mt-4 font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
+              Open to thoughtful conversations around product, systems, and complex workflows.
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <button
+              type="button"
+              data-tally-open="J9DOY4"
+              data-tally-layout="modal"
+              data-tally-width="500"
+              data-tally-emoji-text="👋"
+              data-tally-emoji-animation="wave"
+              class="rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700"
+            >
+              Send a note
+            </button>
+            <a
+              href="https://linkedin.com/in/adityasingh95"
+              target="_blank"
+              rel="noreferrer"
+              class="rounded-full border border-stone-300 px-6 py-3 text-sm font-medium text-stone-800 transition hover:border-stone-900 hover:text-stone-950"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
