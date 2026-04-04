@@ -6,7 +6,7 @@
     <title>Notes — Aditya Singh</title>
     <meta
       name="description"
-      content="Writing on product, systems, enterprise workflows, and AI-enabled knowledge work by Aditya Singh."
+      content="Notes by Aditya Singh on product, systems, operating models, and AI-assisted knowledge work."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,169 +14,283 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            },
-          },
-        },
-      };
-    </script>
+    <link rel="stylesheet" href="styles.css" />
     <script async src="https://tally.so/widgets/embed.js"></script>
   </head>
-  <body class="min-h-screen bg-stone-50 text-stone-900 font-sans">
-    <div class="mx-auto max-w-6xl px-6 sm:px-10">
-      <header class="flex items-center justify-between border-b border-stone-200 py-6">
-        <a href="index.html" class="text-base font-medium uppercase tracking-[0.14em] text-stone-700 transition hover:text-stone-950">Aditya Singh</a>
-        <nav class="hidden gap-8 text-sm text-stone-600 md:flex">
-          <a href="index.html#work" class="transition hover:text-stone-900">Workstreams</a>
-          <a href="notes.html" class="text-stone-950">Notes</a>
-          <a href="background.html" class="transition hover:text-stone-900">Background</a>
-          <a href="index.html#contact" class="transition hover:text-stone-900">Contact</a>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" style="border-bottom: 1px solid var(--line);">
+        <a href="index.html" class="brand">Aditya Singh</a>
+        <nav class="site-nav">
+          <a href="index.html#work">Workstreams</a>
+          <a href="notes.html" style="color: var(--text);">Notes</a>
+          <a href="background.html">Background</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
       <main>
-        <section class="py-20 md:py-24">
-          <p class="text-sm uppercase tracking-[0.2em] text-stone-500">Notes</p>
-          <h1 class="mt-4 max-w-4xl font-serif text-5xl leading-[1.02] tracking-tight text-stone-950 sm:text-6xl lg:text-7xl">
-            Writing on product, systems, enterprise workflows, and AI-enabled knowledge work.
-          </h1>
-          <p class="mt-8 max-w-3xl text-lg leading-8 text-stone-700 sm:text-xl">
-            A growing index of notes on product execution, operating models, structured delivery, and how AI can be used in professional workflows without losing rigor.
-          </p>
+        <section class="section" style="padding-top: 72px; padding-bottom: 64px;">
+          <p class="eyebrow">Notes</p>
+          <h1>Writing on product, systems, and AI-assisted knowledge work.</h1>
+          <div class="intro">
+            <p>
+              This page brings together essays, working notes, and structured thinking pieces across the themes I return to most often.
+            </p>
+            <p>
+              The structure is in place first. The writing will deepen over time.
+            </p>
+          </div>
         </section>
 
-        <section class="border-t border-stone-200 py-16 md:py-20">
-          <div class="grid gap-10 md:grid-cols-[0.78fr_1.22fr]">
+        <section class="section section-divider">
+          <div class="two-column">
             <div>
-              <p class="text-sm uppercase tracking-[0.2em] text-stone-500">Product &amp; Delivery</p>
-              <h2 class="mt-4 max-w-sm font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
-                Notes on shaping work before it reaches execution.
-              </h2>
+              <p class="eyebrow">Featured</p>
+              <h2>A selected set to begin with.</h2>
             </div>
-            <div class="space-y-5">
-              <a href="notes/product-work-between-ambiguity-and-implementation.html" class="group block border-b border-stone-200 py-5 transition hover:border-stone-400">
-                <div class="flex items-start justify-between gap-6">
-                  <div>
-                    <div class="text-xs uppercase tracking-[0.18em] text-stone-400">01 · Product &amp; Delivery</div>
-                    <div class="mt-2 text-2xl font-medium leading-tight text-stone-950 transition group-hover:text-stone-700">On Product Work Between Ambiguity and Implementation</div>
-                    <p class="mt-3 max-w-2xl text-base leading-7 text-stone-700">A note on the layer of product work that sits between unclear asks and something teams can actually execute against.</p>
-                  </div>
-                  <div class="mt-1 text-sm text-stone-400 transition group-hover:translate-x-1">↗</div>
+            <div class="notes-list">
+              <a href="notes/product-work-between-ambiguity-and-implementation.html" class="note-link">
+                <div>
+                  <div class="note-number">Published</div>
+                  <h3>On Product Work Between Ambiguity and Implementation</h3>
+                  <p>Some of the most valuable product work sits between a vague ask and something teams can actually execute.</p>
                 </div>
+                <span>↗</span>
               </a>
+              <a href="notes/why-structured-artifacts-still-matter.html" class="note-link">
+                <div>
+                  <div class="note-number">Published</div>
+                  <h3>Why Structured Artifacts Still Matter in AI-Assisted Teams</h3>
+                  <p>Why AI increases the need for explicit assumptions, clear artifacts, and outputs that can be reviewed and trusted.</p>
+                </div>
+                <span>↗</span>
+              </a>
+              <a href="notes/designing-operating-models-for-complex-internal-platforms.html" class="note-link">
+                <div>
+                  <div class="note-number">Published</div>
+                  <h3>Designing Operating Models for Complex Internal Platforms</h3>
+                  <p>How ownership, workflow, escalation, and governance determine whether a platform actually works.</p>
+                </div>
+                <span>↗</span>
+              </a>
+              <a href="notes/using-ai-to-improve-knowledge-work-without-losing-rigor.html" class="note-link">
+                <div>
+                  <div class="note-number">Published</div>
+                  <h3>Using AI to Improve Knowledge Work Without Losing Rigor</h3>
+                  <p>How AI helps when paired with structure, traceability, and judgment rather than used as a substitute for them.</p>
+                </div>
+                <span>↗</span>
+              </a>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>What Makes a Requirement Executable</h3>
+                  <p>The difference between a requirement that sounds complete and one engineering can truly work from.</p>
+                </div>
+              </div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>Why Internal Platforms Fail Outside the Interface</h3>
+                  <p>Why many internal tools underperform because of process, model, and adoption failures rather than interface problems alone.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="border-t border-stone-200 py-16 md:py-20">
-          <div class="grid gap-10 md:grid-cols-[0.78fr_1.22fr]">
+        <section class="section section-divider">
+          <div class="two-column">
             <div>
-              <p class="text-sm uppercase tracking-[0.2em] text-stone-500">Systems &amp; Operating Models</p>
-              <h2 class="mt-4 max-w-sm font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
-                Notes on how complex systems become usable in practice.
-              </h2>
+              <p class="eyebrow">Themes</p>
+              <h2>The main threads for now.</h2>
             </div>
-            <div class="space-y-5">
-              <a href="notes/designing-operating-models-for-complex-internal-platforms.html" class="group block border-b border-stone-200 py-5 transition hover:border-stone-400">
-                <div class="flex items-start justify-between gap-6">
-                  <div>
-                    <div class="text-xs uppercase tracking-[0.18em] text-stone-400">02 · Systems &amp; Operating Models</div>
-                    <div class="mt-2 text-2xl font-medium leading-tight text-stone-950 transition group-hover:text-stone-700">Designing Operating Models for Complex Internal Platforms</div>
-                    <p class="mt-3 max-w-2xl text-base leading-7 text-stone-700">A note on how ownership, workflow design, governance, and escalation paths shape whether an internal platform actually works.</p>
-                  </div>
-                  <div class="mt-1 text-sm text-stone-400 transition group-hover:translate-x-1">↗</div>
-                </div>
-              </a>
+            <div class="card-grid" style="grid-template-columns: 1fr;">
+              <div class="lens-card">
+                <h3>Product &amp; Delivery</h3>
+                <p>Ambiguity, requirements, scope, tradeoffs, and documentation that helps work become executable.</p>
+              </div>
+              <div class="lens-card">
+                <h3>Systems &amp; Operating Models</h3>
+                <p>Internal platforms, workflow design, governance, ownership, escalation, and how systems function in practice.</p>
+              </div>
+              <div class="lens-card">
+                <h3>AI &amp; Knowledge Work</h3>
+                <p>AI-assisted workflows, structured artifacts, human review, knowledge systems, and the conditions under which AI becomes useful.</p>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="border-t border-stone-200 py-16 md:py-20">
-          <div class="grid gap-10 md:grid-cols-[0.78fr_1.22fr]">
+        <section class="section section-divider">
+          <div class="two-column">
             <div>
-              <p class="text-sm uppercase tracking-[0.2em] text-stone-500">AI &amp; Knowledge Work</p>
-              <h2 class="mt-4 max-w-sm font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
-                Notes on structure, rigor, and AI-assisted workflows.
-              </h2>
+              <p class="eyebrow">Product &amp; Delivery</p>
+              <h2>Shaping work before implementation.</h2>
             </div>
-            <div class="space-y-5">
-              <a href="notes/why-structured-artifacts-still-matter.html" class="group block border-b border-stone-200 py-5 transition hover:border-stone-400">
-                <div class="flex items-start justify-between gap-6">
-                  <div>
-                    <div class="text-xs uppercase tracking-[0.18em] text-stone-400">03 · AI &amp; Knowledge Work</div>
-                    <div class="mt-2 text-2xl font-medium leading-tight text-stone-950 transition group-hover:text-stone-700">Why Structured Artifacts Still Matter in AI-Assisted Teams</div>
-                    <p class="mt-3 max-w-2xl text-base leading-7 text-stone-700">A note on why documents, assumptions, and explicit structure matter even more when AI speeds up drafting and synthesis.</p>
-                  </div>
-                  <div class="mt-1 text-sm text-stone-400 transition group-hover:translate-x-1">↗</div>
+            <div class="notes-list">
+              <a href="notes/product-work-between-ambiguity-and-implementation.html" class="note-link">
+                <div>
+                  <div class="note-number">Published</div>
+                  <h3>On Product Work Between Ambiguity and Implementation</h3>
+                  <p>Where product value often sits between unclear asks, evolving constraints, and the need to create something teams can move forward with.</p>
                 </div>
+                <span>↗</span>
               </a>
-
-              <a href="notes/using-ai-to-improve-knowledge-work-without-losing-rigor.html" class="group block border-b border-stone-200 py-5 transition hover:border-stone-400">
-                <div class="flex items-start justify-between gap-6">
-                  <div>
-                    <div class="text-xs uppercase tracking-[0.18em] text-stone-400">04 · AI &amp; Knowledge Work</div>
-                    <div class="mt-2 text-2xl font-medium leading-tight text-stone-950 transition group-hover:text-stone-700">Using AI to Improve Knowledge Work Without Losing Rigor</div>
-                    <p class="mt-3 max-w-2xl text-base leading-7 text-stone-700">A note on using AI to improve documentation, analysis, and knowledge workflows while preserving traceability and judgment.</p>
-                  </div>
-                  <div class="mt-1 text-sm text-stone-400 transition group-hover:translate-x-1">↗</div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>What Makes a Requirement Executable</h3>
+                  <p>The difference between a requirement that appears complete and one that gives engineering enough clarity to implement, question, estimate, and test.</p>
                 </div>
-              </a>
+              </div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>MVP Thinking Without Losing Implementation Realism</h3>
+                  <p>How to reduce scope deliberately without pretending edge cases, constraints, and delivery realities do not exist.</p>
+                </div>
+              </div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>Why Product Work Is Often Translation Work</h3>
+                  <p>Product work often means translating between business intent, implementation detail, client context, and delivery constraints without flattening any of them.</p>
+                </div>
+              </div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>Documentation Should Reduce Ambiguity, Not Just Record It</h3>
+                  <p>Why documents are most useful when they sharpen decisions and support execution rather than merely restate what was said.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="border-t border-stone-200 py-16 md:py-20">
-          <div class="grid gap-10 md:grid-cols-[0.78fr_1.22fr]">
+        <section class="section section-divider">
+          <div class="two-column">
             <div>
-              <p class="text-sm uppercase tracking-[0.2em] text-stone-500">This page will grow</p>
-              <h2 class="mt-4 max-w-sm font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
-                A quiet archive in progress.
-              </h2>
+              <p class="eyebrow">Systems &amp; Operating Models</p>
+              <h2>The structures around the system matter too.</h2>
             </div>
+            <div class="notes-list">
+              <a href="notes/designing-operating-models-for-complex-internal-platforms.html" class="note-link">
+                <div>
+                  <div class="note-number">Published</div>
+                  <h3>Designing Operating Models for Complex Internal Platforms</h3>
+                  <p>How ownership, workflow, escalation, and governance determine whether a platform actually works.</p>
+                </div>
+                <span>↗</span>
+              </a>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>Why Internal Platforms Fail Outside the Interface</h3>
+                  <p>A note on why many internal systems struggle because of process, model, and adoption gaps rather than interface quality alone.</p>
+                </div>
+              </div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>Workflow Clarity Is a Product Problem</h3>
+                  <p>Why unclear handoffs, vague ownership, and invisible states often create more friction than missing features.</p>
+                </div>
+              </div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>When Complexity Belongs in the System and When It Belongs in Process</h3>
+                  <p>A practical way to think about whether complexity should be encoded into software or handled operationally.</p>
+                </div>
+              </div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>Ownership, Escalation, and the Hidden Shape of Enterprise Systems</h3>
+                  <p>The structures around a system often matter as much as the system itself.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-divider">
+          <div class="two-column">
             <div>
-              <p class="max-w-2xl text-base leading-8 text-stone-700">
-                This index is intended to expand over time with additional notes on product execution, internal platforms, enterprise systems, AI workflows, and adjacent areas of interest.
-              </p>
+              <p class="eyebrow">AI &amp; Knowledge Work</p>
+              <h2>Where AI becomes useful in serious work.</h2>
+            </div>
+            <div class="notes-list">
+              <a href="notes/why-structured-artifacts-still-matter.html" class="note-link">
+                <div>
+                  <div class="note-number">Published</div>
+                  <h3>Why Structured Artifacts Still Matter in AI-Assisted Teams</h3>
+                  <p>Why AI increases the need for explicit assumptions, clear artifacts, and outputs that can be reviewed and trusted.</p>
+                </div>
+                <span>↗</span>
+              </a>
+              <a href="notes/using-ai-to-improve-knowledge-work-without-losing-rigor.html" class="note-link">
+                <div>
+                  <div class="note-number">Published</div>
+                  <h3>Using AI to Improve Knowledge Work Without Losing Rigor</h3>
+                  <p>How AI helps when paired with structure, traceability, and judgment.</p>
+                </div>
+                <span>↗</span>
+              </a>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>AI Is Useful When the Workflow Is Shaped First</h3>
+                  <p>Why better AI outcomes usually come from better workflow design, boundaries, and inputs rather than prompting alone.</p>
+                </div>
+              </div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>Human Review Is Not the Opposite of AI Leverage</h3>
+                  <p>Why review, verification, and judgment make AI more useful rather than less.</p>
+                </div>
+              </div>
+              <div class="note-link">
+                <div>
+                  <div class="note-number">Planned</div>
+                  <h3>Knowledge Systems Need Structure Before Search</h3>
+                  <p>Why search, retrieval, and AI outputs improve when the underlying knowledge already has shape.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer class="border-t border-stone-200 py-16">
-        <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
-          <div>
-            <p class="text-sm uppercase tracking-[0.2em] text-stone-500">Contact</p>
-            <h2 class="mt-4 font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
-              Open to thoughtful conversations around product, systems, and complex workflows.
-            </h2>
-          </div>
-          <div class="flex flex-wrap gap-4">
-            <button
-              type="button"
-              data-tally-open="J9DOY4"
-              data-tally-layout="modal"
-              data-tally-width="500"
-              data-tally-emoji-text="👋"
-              data-tally-emoji-animation="wave"
-              class="rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700"
-            >
-              Send a note
-            </button>
-            <a
-              href="https://linkedin.com/in/adityasingh95"
-              target="_blank"
-              rel="noreferrer"
-              class="rounded-full border border-stone-300 px-6 py-3 text-sm font-medium text-stone-800 transition hover:border-stone-900 hover:text-stone-950"
-            >
-              LinkedIn
-            </a>
-          </div>
+      <footer id="contact" class="site-footer" style="border-top: 1px solid var(--line); margin-top: 12px; padding-top: 52px;">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Open to thoughtful conversations around product, systems, and complex workflows.</h2>
+        </div>
+        <div class="actions">
+          <button
+            type="button"
+            data-tally-open="J9DOY4"
+            data-tally-layout="modal"
+            data-tally-width="500"
+            data-tally-emoji-text="👋"
+            data-tally-emoji-animation="wave"
+            class="button button-primary"
+          >
+            Send a note
+          </button>
+          <a
+            href="https://linkedin.com/in/adityasingh95"
+            target="_blank"
+            rel="noreferrer"
+            class="button button-secondary"
+          >
+            LinkedIn
+          </a>
         </div>
       </footer>
     </div>
