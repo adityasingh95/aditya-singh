@@ -72,12 +72,14 @@
   };
 
   const scrollToTarget = (hash, fallbackY = 0, behavior = "auto") => {
-    if (!hash) {
-      window.scrollTo({ top: fallbackY, left: 0, behavior });
-      return false;
+    const decodedId = hash ? decodeURIComponent(hash.slice(1)) : "";
+    const isTopTarget = !hash || hash === "#top" || decodedId === "top";
+
+    if (isTopTarget) {
+      window.scrollTo({ top: 0, left: 0, behavior });
+      return true;
     }
 
-    const decodedId = decodeURIComponent(hash.slice(1));
     const target = document.getElementById(decodedId) || document.querySelector(hash);
     if (target) {
       target.scrollIntoView({ behavior, block: "start" });
