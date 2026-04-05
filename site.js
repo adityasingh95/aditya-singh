@@ -50,6 +50,12 @@
       "backdrop-blur",
       "supports-[backdrop-filter]:bg-stone-50/75"
     );
+
+    const brandLink = header.querySelector("a");
+    if (brandLink) {
+      brandLink.textContent = "Home";
+      brandLink.setAttribute("aria-label", "Go to home");
+    }
   };
 
   const saveScrollPosition = () => {
