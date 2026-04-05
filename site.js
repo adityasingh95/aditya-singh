@@ -3,8 +3,10 @@
     return;
   }
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const getShell = () => document.body.firstElementChild;
   const getCurrentMetaDescription = () => document.querySelector('meta[name="description"]');
+  const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
 
   const injectTransitionStyles = () => {
     if (document.getElementById("spa-nav-style")) return;
@@ -12,20 +14,48 @@
     style.id = "spa-nav-style";
     style.textContent = `
       body > div {
-        transition: opacity 180ms ease, transform 180ms ease;
+        transition: opacity 320ms cubic-bezier(0.22, 1, 0.36, 1), transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: opacity, transform;
       }
-      body > div.spa-transitioning {
-        opacity: 0.86;
-        transform: translateY(2px);
+      body > div.spa-transitioning-out {
+        opacity: 0.82;
+        transform: translateY(-14px);
+        pointer-events: none;
+      }
+      body > div.spa-transitioning-in {
+        opacity: 0;
+        transform: translateY(18px);
         pointer-events: none;
       }
       @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
         body > div {
           transition: none;
         }
       }
     `;
     document.head.appendChild(style);
+  };
+
+  const enhanceHeader = () => {
+    const header = document.querySelector("body > div > header");
+    if (!header) return;
+    header.classList.add(
+      "sticky",
+      "top-0",
+      "z-50",
+      "bg-stone-50/90",
+      "backdrop-blur",
+      "supports-[backdrop-filter]:bg-stone-50/75"
+    );
+
+    const brandLink = header.querySelector("a");
+    if (brandLink) {
+      brandLink.textContent = "Home";
+      brandLink.setAttribute("aria-label", "Go to home");
+    }
   };
 
   const saveScrollPosition = () => {
@@ -41,39 +71,21 @@
     return event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0;
   };
 
-  const shouldHandleLink = (link, event) => {
-    if (!link || event.defaultPrevented || isModifiedClick(event)) return false;
-    if (link.target && link.target !== "_self") return false;
-    if (link.hasAttribute("download")) return false;
-
-    const rawHref = link.getAttribute("href");
-    if (!rawHref || rawHref.startsWith("#")) return false;
-    if (rawHref.startsWith("mailto:") || rawHref.startsWith("tel:") || rawHref.startsWith("javascript:")) {
-      return false;
-    }
-
-    const targetUrl = new URL(link.href, window.location.href);
-    if (targetUrl.origin !== window.location.origin) return false;
-
-    const samePath = targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search;
-    if (samePath && targetUrl.hash) return false;
-
-    return true;
-  };
-
-  const scrollToTarget = (hash, fallbackY = 0) => {
+  const scrollToTarget = (hash, fallbackY = 0, behavior = "auto") => {
     if (!hash) {
-      window.scrollTo({ top: fallbackY, left: 0, behavior: "auto" });
-      return;
+      window.scrollTo({ top: fallbackY, left: 0, behavior });
+      return false;
     }
 
     const decodedId = decodeURIComponent(hash.slice(1));
     const target = document.getElementById(decodedId) || document.querySelector(hash);
     if (target) {
-      target.scrollIntoView({ behavior: "auto", block: "start" });
-    } else {
-      window.scrollTo({ top: fallbackY, left: 0, behavior: "auto" });
+      target.scrollIntoView({ behavior, block: "start" });
+      return true;
     }
+
+    window.scrollTo({ top: fallbackY, left: 0, behavior });
+    return false;
   };
 
   const refreshEmbeds = () => {
@@ -96,14 +108,23 @@
 
     isNavigating = true;
     saveScrollPosition();
-    shell.classList.add("spa-transitioning");
+
+    const responsePromise = fetch(targetUrl.href, {
+      headers: {
+        "X-Requested-With": "spa-nav",
+      },
+    });
+
+    if (!prefersReducedMotion) {
+      shell.classList.remove("spa-transitioning-in");
+      shell.classList.add("spa-transitioning-out");
+    }
 
     try {
-      const response = await fetch(targetUrl.href, {
-        headers: {
-          "X-Requested-With": "spa-nav",
-        },
-      });
+      const [response] = await Promise.all([
+        responsePromise,
+        prefersReducedMotion ? Promise.resolve() : wait(170),
+      ]);
 
       if (!response.ok) {
         throw new Error(`Navigation failed with status ${response.status}`);
@@ -129,20 +150,33 @@
         history.pushState({ scrollY: 0 }, "", `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`);
       }
 
+      enhanceHeader();
+      refreshEmbeds();
+
+      if (!prefersReducedMotion) {
+        shell.classList.remove("spa-transitioning-out");
+        shell.classList.add("spa-transitioning-in");
+      }
+
+      scrollToTarget(targetUrl.hash, push ? 0 : restoreScroll, "auto");
+
       requestAnimationFrame(() => {
-        shell.classList.remove("spa-transitioning");
-        scrollToTarget(targetUrl.hash, push ? 0 : restoreScroll);
-        refreshEmbeds();
+        requestAnimationFrame(() => {
+          shell.classList.remove("spa-transitioning-in");
+        });
       });
     } catch (_error) {
       window.location.href = targetUrl.href;
       return;
     } finally {
-      isNavigating = false;
+      window.setTimeout(() => {
+        isNavigating = false;
+      }, prefersReducedMotion ? 0 : 220);
     }
   };
 
   injectTransitionStyles();
+  enhanceHeader();
   if (!history.state || typeof history.state.scrollY !== "number") {
     saveScrollPosition();
   }
@@ -163,12 +197,44 @@
 
   document.addEventListener("click", (event) => {
     const link = event.target.closest("a[href]");
-    if (!shouldHandleLink(link, event)) return;
+    if (!link || event.defaultPrevented || isModifiedClick(event)) return;
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+
+    const rawHref = link.getAttribute("href");
+    if (!rawHref) return;
+    if (rawHref.startsWith("mailto:") || rawHref.startsWith("tel:") || rawHref.startsWith("javascript:")) return;
+
+    const targetUrl = new URL(link.href, window.location.href);
+    if (targetUrl.origin !== window.location.origin) return;
+
+    const sameDocument = targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search;
+
+    if (sameDocument && targetUrl.hash) {
+      event.preventDefault();
+      history.pushState({ ...(history.state || {}), scrollY: window.scrollY }, "", `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`);
+      scrollToTarget(targetUrl.hash, window.scrollY, prefersReducedMotion ? "auto" : "smooth");
+      return;
+    }
+
+    if (sameDocument && !targetUrl.hash) {
+      return;
+    }
+
     event.preventDefault();
     navigate(link.href, { push: true, restoreScroll: 0 });
   });
 
   window.addEventListener("popstate", (event) => {
+    const targetUrl = new URL(window.location.href);
+    const currentPath = window.location.pathname + window.location.search;
+    const statePath = targetUrl.pathname + targetUrl.search;
+
+    if (statePath === currentPath && targetUrl.hash) {
+      scrollToTarget(targetUrl.hash, typeof event.state?.scrollY === "number" ? event.state.scrollY : 0, prefersReducedMotion ? "auto" : "smooth");
+      return;
+    }
+
     navigate(window.location.href, {
       push: false,
       restoreScroll: typeof event.state?.scrollY === "number" ? event.state.scrollY : 0,
