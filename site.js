@@ -28,6 +28,19 @@
     document.head.appendChild(style);
   };
 
+  const enhanceHeader = () => {
+    const header = document.querySelector("body > div > header");
+    if (!header) return;
+    header.classList.add(
+      "sticky",
+      "top-0",
+      "z-50",
+      "bg-stone-50/90",
+      "backdrop-blur",
+      "supports-[backdrop-filter]:bg-stone-50/75"
+    );
+  };
+
   const saveScrollPosition = () => {
     try {
       const nextState = { ...(history.state || {}), scrollY: window.scrollY };
@@ -130,6 +143,7 @@
       }
 
       requestAnimationFrame(() => {
+        enhanceHeader();
         shell.classList.remove("spa-transitioning");
         scrollToTarget(targetUrl.hash, push ? 0 : restoreScroll);
         refreshEmbeds();
@@ -143,6 +157,7 @@
   };
 
   injectTransitionStyles();
+  enhanceHeader();
   if (!history.state || typeof history.state.scrollY !== "number") {
     saveScrollPosition();
   }
