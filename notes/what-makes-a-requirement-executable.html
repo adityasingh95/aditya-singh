@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Makes a Requirement Executable — Aditya Singh</title>
+    <meta
+      name="description"
+      content="A requirement becomes useful when it gives delivery teams enough clarity to build, question, estimate, and test the work."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </head>
+  <body class="min-h-screen bg-stone-50 text-stone-900 font-sans">
+    <div class="mx-auto max-w-6xl px-6 sm:px-10">
+      <header class="flex items-center justify-between border-b border-stone-200 py-6">
+        <a href="../index.html" class="text-base font-medium uppercase tracking-[0.14em] text-stone-700 transition hover:text-stone-950">Aditya Singh</a>
+        <nav class="hidden gap-8 text-sm text-stone-600 md:flex">
+          <a href="../index.html#work" class="transition hover:text-stone-900">Workstreams</a>
+          <a href="../notes.html" class="text-stone-950">Notes</a>
+          <a href="../background.html" class="transition hover:text-stone-900">Background</a>
+          <a href="#contact" class="transition hover:text-stone-900">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="py-20 md:py-24">
+          <a href="../notes.html" class="inline-flex items-center text-sm text-stone-600 transition hover:text-stone-950">← Back to Notes</a>
+          <p class="mt-10 text-sm uppercase tracking-[0.2em] text-stone-500">Notes · 05</p>
+          <h1 class="mt-4 max-w-4xl font-serif text-5xl leading-[1.02] tracking-tight text-stone-950 sm:text-6xl lg:text-7xl">
+            What Makes a Requirement Executable
+          </h1>
+          <p class="mt-8 max-w-3xl text-lg leading-8 text-stone-700 sm:text-xl">
+            A requirement is only useful when it gives delivery teams enough clarity to build, question, estimate, and test the work.
+          </p>
+        </section>
+
+        <section class="border-t border-stone-200 py-16 md:py-20">
+          <div class="max-w-3xl">
+            <p class="text-base leading-8 text-stone-700">Many requirements feel clear right up until the moment someone tries to build from them.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">They sound reasonable in a meeting. They are often written in complete sentences. They may even reflect the right business intention. But once engineering tries to estimate the work, QA tries to define how it should be tested, or product tries to assess what is actually in scope, the gaps begin to show. The problem is not always that the requirement is wrong. Often, it is simply not executable.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">This distinction matters more than people think. A requirement can be understandable and still fail as a working artifact. It can communicate what someone wants without giving delivery teams enough clarity to act on it. That is usually where friction begins. Teams start filling in the blanks differently. Assumptions stay implicit. Review conversations sound aligned until implementation exposes the places where the requirement never became real enough to carry forward.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">A lot of requirements stop at the level of intention. They explain the desired outcome, the business need, or the user expectation. That is necessary, but it is not sufficient. A statement like “the user should be able to amend the order after submission” may express the right direction, but it leaves too much unresolved. Which user? Under what conditions? Up to what stage? What parts of the order are editable? What happens if the order is partially processed? What should the system show when editing is no longer allowed? At that point the requirement is no longer just about whether the idea makes sense. It becomes a question of whether the work has been shaped well enough for coordinated delivery.</p>
+
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">What executable actually means</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">Executable does not mean that every implementation detail has already been decided. It does not mean that development can proceed without discussion. It means the requirement is clear enough to support action across roles. Engineering should be able to design against it. QA should be able to test it. Product should be able to reason about tradeoffs and scope. Stakeholders should be able to review the right thing. In other words, the requirement should not only describe intent. It should give the work a form.</p>
+
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">What gives a requirement execution-ready clarity</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">The first part of that form is clarity about what is actually changing. A requirement needs a stable unit of change. Is the change about a workflow, a screen, a data rule, a permission model, a notification, or a downstream system interaction? A surprising amount of confusion comes from requirements that speak in broad functional terms without clearly identifying the object being changed. Teams then discuss the same requirement while imagining different layers of the system.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">The second part is clarity about the actor. Behavior is usually shaped by role, permission, or context. A requirement that refers vaguely to “the user” may collapse multiple different cases into one sentence. Internal users, end clients, support users, and administrators often interact with the same system differently. If the actor is unclear, the behavior often becomes too abstract to implement cleanly.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">The third part is behavior itself. This is where many requirements sound complete while remaining weak. They say what should be possible, but not how the behavior should actually unfold. Executable requirements usually make the behavior more legible. What triggers it? What should happen first? What state changes? What should the system do, and what should the user see? Even where exact UI is not yet defined, the underlying behavior needs enough shape that different teams are not forced to invent it independently.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">Conditions matter just as much. Many ambiguities are really unstated conditions. Does the behavior apply only before approval? Only when a certain flag is enabled? Only for a certain product type, role, or status? A requirement often becomes far more usable once its conditions are explicit. The work becomes easier to reason about not because more has been added, but because the boundaries have become visible.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">Constraints matter too. Some requirements fail because they are written as though the system exists in a vacuum. In reality, constraints are part of the requirement. There may be permission restrictions, performance expectations, dependencies on external systems, audit obligations, regulatory boundaries, or limits imposed by current architecture. These are not secondary concerns to be discovered later. They directly affect the viable shape of the solution.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">Then come the edges. Happy-path requirements are often easy to agree on. Real delivery becomes harder at the edges. What happens when the action is attempted in the wrong state? What happens when data is missing, partial, conflicting, or delayed? What should happen when the ideal path breaks? A requirement does not need to model every hypothetical scenario, but it should address the important edges that are already visible. That is often where execution quality is decided.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">Just as important is the ability to name what is still unknown. Executable requirements do not require perfect certainty. In real delivery work, they rarely start that way. Dependencies remain open. Stakeholder decisions are sometimes pending. Some scenarios are intentionally deferred. That is normal. The difference is whether the uncertainty is visible. A requirement becomes much more usable when open items are named explicitly instead of being hidden inside vague language. Teams can work with bounded uncertainty. What they struggle with is ambiguity disguised as completeness.</p>
+
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">Why this matters across delivery</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">This matters far beyond engineering. For engineering, executable requirements reduce interpretive drift and make design discussions more productive. For QA, they improve testability and make success criteria easier to define. For product, they make scope management and tradeoff decisions more grounded. For stakeholders, they create better review conversations because people are reacting to something more concrete than intention alone. The value of an executable requirement is not just that it is better written. It improves coordination quality across the whole delivery chain.</p>
+
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">What executable requirements are not</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">They are not simply longer requirements. More words do not create more clarity by default. They are not polished summaries that sound convincing but leave the hard parts untouched. They are not rigid documents designed to eliminate all discussion. Strong requirements still invite questions. The point is not to close down thought. It is to make the right questions visible early enough that the work does not collapse under them later.</p>
+
+            <h2 class="mt-12 text-2xl font-medium tracking-tight text-stone-950">Closing</h2>
+            <p class="mt-4 text-base leading-8 text-stone-700">In practice, a requirement becomes executable when it can survive contact with implementation. It gives the team enough shared structure to build, test, challenge, and refine the work without inventing the fundamentals from scratch at every handoff. That is what makes it valuable.</p>
+            <p class="mt-5 text-base leading-8 text-stone-700">A requirement is not only a record of what was asked for. It is one of the main tools by which ambiguity is turned into coordinated execution. When it does that well, delivery feels clearer, calmer, and more intentional. When it does not, the document may still exist, but the real work has not yet been shaped.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" class="border-t border-stone-200 py-16">
+        <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p class="text-sm uppercase tracking-[0.2em] text-stone-500">Contact</p>
+            <h2 class="mt-4 font-serif text-3xl leading-tight text-stone-950 sm:text-4xl">
+              Open to thoughtful conversations around product, systems, and complex workflows.
+            </h2>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <button
+              type="button"
+              data-tally-open="J9DOY4"
+              data-tally-layout="modal"
+              data-tally-width="500"
+              data-tally-emoji-text="👋"
+              data-tally-emoji-animation="wave"
+              class="rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700"
+            >
+              Send a note
+            </button>
+            <a
+              href="https://linkedin.com/in/adityasingh95"
+              target="_blank"
+              rel="noreferrer"
+              class="rounded-full border border-stone-300 px-6 py-3 text-sm font-medium text-stone-800 transition hover:border-stone-900 hover:text-stone-950"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
